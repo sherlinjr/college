@@ -1,0 +1,114 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>form page</title>
+</head>
+<style>
+.container {
+    max-width: 300px;
+    padding: 17px;
+    position: absolute;
+    left: 450px;
+    top: 200px;
+    margin: 20px;
+    background-color:#ff9999;
+}
+
+</style>
+<body style="background-color:powderblue; ">
+  {% for message in messages %}
+      <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+        <strong>Message:</strong> {{ message }}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+          </button>
+      </div>
+  {% endfor %}
+
+<div>
+    <img src="{% static 'assets/images/form.jpg' %}" style="width:100%; height:900;">
+
+<div class="container">
+<form method="POST">
+    {% csrf_token %}
+    <fieldset>
+        <legend>Form</legend>
+        <p>
+    <label>Name:</label>
+            <input type="text" name="username" placeholder="enter user name" required></p>
+        <p>
+    <label>Date of birth</label>
+            <input type="date" name="DOB" placeholder="enter DOB "></p>
+        <p>
+    <label>Age:</label>
+  <input type="text" name="age" placeholder="enter age"></p>
+   <label>Gender:</label>
+  <li><input type="radio"  name="gender" value="male"/>male<br></li>
+ <li><input type="radio"  name="gender" value="female"/>female<br></li>
+    <li><input type="radio"  name="gender" value="other"/>other<br></li>
+        <p>
+    <label>phn-number:</label>
+  <input type="text" name="phone number" placeholder="enter phn-number" required></p>
+        <p>
+    <label>email id:</label>
+  <input type="email" name="email" placeholder="enter email" required></p>
+        <p>
+    <label>Address:</label>
+  <input type="text"  id="address" name="address" placeholder="enter address"></p>
+        <p>
+  <label for="department">Choose a department</label>
+ <select id="department" name="department">
+  <option >computer science</option>
+  <option >commerce</option>
+  <option >science</option>
+</select></p>
+        <p>
+  <label for="courses">Choose a course</label>
+ <select id="courses" name="courses">
+     <optgroup label="computer science">
+         <option >BE / B. Tech in Computer Science (CS)</option>
+         <option >BCA (Bachelor of Computer Application)</option>
+         <option >BCA in CyberSecurity.</option>
+         <option >B. Tech + M. Tech </option>
+     </optgroup>
+     <optgroup label="commerce">
+         <option >B.Com</option>
+         <option >BBA</option>
+         <option >B.Com LL.B.</option>
+         <option >BBA LL.B</option>
+     </optgroup>
+     <optgroup label="science">
+         <option >BE/B.Tech-</option>
+         <option >B.Arch</option>
+         <option >BCA</option>
+         <option >B.Sc</option>
+     </optgroup>
+</select></p>
+        <p>
+   <label for="purpose">purpose:</label>
+ <select id="purpose" name="purpose">
+  <option >place order</option>
+  <option >enquiry</option>
+  <option >return</option>
+</select></p>
+        <p>
+    <label>materials:</label>
+<input type="checkbox" name="book" id="book" value="book">
+<label for="book">book</label>
+<input type="checkbox" name="pen" id="pen"  value="pen">
+<label for="pen">pen</label>
+<input type="checkbox" name="paper" id="exam paper"  value="paper">
+<label for="exam paper">exam paper</label>
+    </p>
+    <button style="btn btn-success;text-align:center">Submit</button>
+    <button >
+     <a href="{% url 'clg_app:logout' %}">
+      logout</a></button>
+        </fieldset>
+ </form>
+</div>
+</div>
+</body>
+</html>

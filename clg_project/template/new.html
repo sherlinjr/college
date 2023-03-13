@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Newpage</title>
+</head>
+<style>
+.container{
+    text-align: center;
+    padding:30px;
+    left: 450px;
+    top: 200px;
+    position: absolute;
+    background-color:white;
+ }
+#btn{
+font-size: 50px;
+}
+
+</style>
+<body>
+<div>
+     <img src="{% static 'assets/images/original.jpg' %}" style="width:100%; height:500; ">
+    <div class="container">
+       <button style="text-align:center; font-size: 30px;" >
+          <a  class="btn btn-success" href="{% url 'clg_app:form' %}"> CLICK </a>
+       </button>
+          <p style="text-align:center; font-size: 40px;" > click here to get the form </p>
+    </div>
+</div>
+</body>
+</html>
